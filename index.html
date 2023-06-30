@@ -21,22 +21,25 @@
                 <div id="exit"></div>
             </div>
             <form action="" method="post">
-                <label >
-                    Book Title:
-                    <input type="text" name="title" id="book-title">
-                </label>
-                <label >
-                    Author name:
-                    <input type="text" name="name" id="author-name">
-                </label>
-                <label >
-                    Number of Pages
-                    <input type="text" name="pages" id="book-pages">
-                </label>
-                <label>
-                    Read?
-                    <input type="checkbox" name="read" id="read">
-                </label>
+                <div class="grid">
+                    <label >
+                        Book Title:
+                        <input type="text" name="title" id="book-title">
+                    </label>
+                    <label >
+                        Author name:
+                        <input type="text" name="name" id="author-name">
+                    </label>
+                    <label >
+                        Number of Pages
+                        <input type="text" name="pages" id="book-pages" pattern="\d+" required>
+                    </label>
+                    <label>
+                        Read?
+                        <input type="checkbox" name="read" id="read">
+                    </label>
+                </div>
+                <button type="submit">Submit</button>
                 
             </form>
         </div>
