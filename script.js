@@ -30,8 +30,8 @@ function Book(title, author, pages, read){
     creates and appends a new book to the library based on input responses
 */
 function addBookToLibrary(book){
-    myLibrary.push(book);
     displayBook(book);
+    myLibrary.push(book);
     
 }
 /*
@@ -41,9 +41,11 @@ function addBookToLibrary(book){
 function displayBook(book){
     //initialize querySelector for content/body
     let contentBody = document.querySelector('.content');
-
     //Create parent box element
     let boxDiv = document.createElement("div");
+
+    // Assign index number
+    boxDiv.setAttribute('data-index', myLibrary.length);
 
     //Assign box class
     boxDiv.classList.add('box');
@@ -99,6 +101,21 @@ function displayBook(book){
     button.setAttribute('type','button');
     button.id = 'remove';
     button.textContent = 'Remove';
+
+    //add event listener for removal
+    button.addEventListener(`click`, ()=>{
+        //retrieve data index
+        let index = boxDiv.getAttribute('data-index');
+        let indexBox = document.querySelector(`div[data-index='${index}']`);
+
+        //remove child based on index
+        contentBody.removeChild(indexBox);
+        
+        //update library
+        myLibrary.splice(index, 1);
+        updateLibrary();
+    });
+
     //append button
     body.appendChild(button);
 
@@ -110,7 +127,22 @@ function displayBook(book){
     contentBody.appendChild(boxDiv);
 }
 
-// get inputs from user
+
+/*
+    Update data attributes for each user
+*/
+function updateLibrary(){
+    //grab content parent
+    let contentBody = document.querySelector('.content');
+
+    //iterate over each child and update accordingly
+    for(let i =0; i < myLibrary.length; i++){
+        contentBody.children[i].setAttribute('data-index', i);
+    }
+}
+/*
+    Gain input from user
+*/
 let form = document.querySelector('form');
 form.addEventListener(`submit`, (e)=>{
     // add animation for scrolling up
@@ -130,3 +162,7 @@ form.addEventListener(`submit`, (e)=>{
     
 
 });
+
+/*
+    Add event listeners for DOM removal
+*/
