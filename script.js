@@ -77,7 +77,7 @@ function displayBook(book){
     // create and append second child
     let readText = document.createElement('div');
     readText.classList.add('read-text');
-    readText.textContent = 'read';
+    readText.textContent = 'Read';
     
     // also add a switch for readText (will be modified later)
     let textInp = document.createElement('input');
@@ -85,6 +85,7 @@ function displayBook(book){
     // set attributes for textInp
     textInp.setAttribute('type', 'checkbox');
     textInp.setAttribute('name', 'read');
+    textInp.checked = book.read;
     textInp.id = 'read';
 
     // append textInp to readText
