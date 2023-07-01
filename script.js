@@ -94,6 +94,14 @@ function displayBook(book){
     // append second child
     body.appendChild(readText);
 
+    //create button for removal
+    let button = document.createElement('button');
+    button.setAttribute('type','button');
+    button.id = 'remove';
+    button.textContent = 'Remove';
+    //append button
+    body.appendChild(button);
+
     //append both children to box
     boxDiv.appendChild(header);
     boxDiv.appendChild(body);

@@ -239,6 +239,9 @@ body, html{
         
         .Hero, .author{
             scrollbar-width: none;
+            &::-webkit-scrollbar{
+                display: none;
+            }
             overflow-x: auto;
         }
     }
@@ -256,4 +259,19 @@ body, html{
 }
 #read{
     @extend %switch;
+}
+#remove{
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid red 1px;
+    width: 100%;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    &:hover{
+        background-color: red;
+        color: white;
+        box-shadow: 0 0 5px red;
+    }
 }
