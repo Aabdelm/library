@@ -1,4 +1,5 @@
 //Initialize global vars
+$current: red;
 %switch{
     position: relative;
     appearance: none;
@@ -157,6 +158,9 @@ body, html{
         }
     }
 }
+#submit{
+    cursor: pointer;
+}
 //Finish designing pop up form
 
 //Initialize container. Note that we'll need infinite rows
@@ -213,7 +217,7 @@ body, html{
     grid-auto-rows: 1fr;
     
 }
-.box1, .box2, .box3, .box4{
+.box{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -223,7 +227,7 @@ body, html{
     //border for unread
     border: solid red 1px;
     //glow for read
-    box-shadow: 0 0 10px red;
+    box-shadow: 0 0 10px $current;
     padding: 0 5px;
     border-radius: 5%;
     >header{
