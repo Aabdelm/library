@@ -140,6 +140,7 @@ function displayBook(book){
     boxDiv.appendChild(header);
     boxDiv.appendChild(body);
 
+    // changes background to url
     if(book.background.length !== 0){
         boxDiv.style.background = `url('${book.background}')`
         boxDiv.style.backgroundColor = `#083344`
