@@ -70,7 +70,6 @@ body, html{
     background-color: #083344;
     border-radius: 1%;
     transition: translate 1s;
-    transform: transformY(50px);
 }
 // .active-box{
 //     transition: 0.3s;
@@ -147,17 +146,20 @@ body, html{
           bottom: 5%;
           width: 100px;
           height: 30px;
-          background-color: #15803d;
-          border: none;
-          border-radius: 5px;
+          border: solid #15803d 1px;
+          background-color: rgba(0,0,0,0);
           color: white;
           font-weight: 500;
-
+          transition: background-color 0.3s ease-out;
+          cursor: pointer;
+          &:hover{
+           
+            background-color: green;
+            color: white;
+            box-shadow: 0 0 5px green;
+          }
         }
     }
-}
-#submit{
-    cursor: pointer;
 }
 //Finish designing pop up form
 
