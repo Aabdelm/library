@@ -1,16 +1,19 @@
 let addBtn = document.querySelector('#add');
+
 //Initialize query Selectors for form pop up
 let promptBg = document.querySelector('.prompt-bg');
 let promptBox = document.querySelector('.prompt-box');
 let exit = document.querySelector('#exit');
-//Create popup animation for form creation
+
+// Create popup animation for form creation
 addBtn.addEventListener(`click`, ()=>{
     promptBg.classList.toggle('active');
     promptBox.style.transition = '0.3s';
     promptBox.style.transform = `translateY(5px)`;
 
 });
-//Create pop animation for exiting form
+
+// Create pop animation for exiting form
 exit.addEventListener(`click`, ()=>{
     promptBg.classList.toggle('active');
     promptBox.style.transition = '0.1s';
@@ -24,6 +27,10 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.changeStatus = function(){
+    this.read = !this.read;
 }
 
 /*
@@ -46,6 +53,7 @@ function displayBook(book){
 
     // Assign index number
     boxDiv.setAttribute('data-index', myLibrary.length);
+    boxDiv.setAttribute('read',book.read);
 
     //Assign box class
     boxDiv.classList.add('box');
@@ -90,6 +98,14 @@ function displayBook(book){
     textInp.checked = book.read;
     textInp.id = 'read';
 
+    //Add event listener
+    textInp.addEventListener(`click`, () =>{
+        book.changeStatus();
+
+        //Change border styling
+        boxDiv.setAttribute('read',book.read);
+    });
+
     // append textInp to readText
     readText.appendChild(textInp);
 
@@ -110,7 +126,7 @@ function displayBook(book){
 
         //remove child based on index
         contentBody.removeChild(indexBox);
-        
+
         //update library
         myLibrary.splice(index, 1);
         updateLibrary();
@@ -162,7 +178,3 @@ form.addEventListener(`submit`, (e)=>{
     
 
 });
-
-/*
-    Add event listeners for DOM removal
-*/

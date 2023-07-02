@@ -1,5 +1,3 @@
-//Initialize global vars
-$current: red;
 %switch{
     position: relative;
     appearance: none;
@@ -211,7 +209,7 @@ body, html{
     padding: 15px;
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); //repeat(4, minmax(150px, 1fr));
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
     column-gap: 15px;
     grid-template-rows: repeat(2, 50%);
     grid-auto-rows: 50%;
@@ -224,12 +222,9 @@ body, html{
     color: #CCCCCC;
     background-color: #083344;
     outline: none;
-    //border for unread
-    border: solid red 1px;
-    //glow for read
-    box-shadow: 0 0 10px $current;
     padding: 0 5px;
     border-radius: 5%;
+    transition: 0.3s;
     >header{
         white-space: nowrap;
         overflow-y: hidden;
@@ -274,4 +269,14 @@ body, html{
         color: white;
         box-shadow: 0 0 5px red;
     }
+}
+[read="true"]{
+    border: solid limegreen 1px;
+    //glow for read
+    box-shadow: 0 0 10px green;
+}
+[read="false"]{
+    border: solid red 1px;
+    //glow for read
+    box-shadow: 0 0 10px red;
 }
