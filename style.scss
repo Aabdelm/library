@@ -106,12 +106,12 @@ body, html{
 .prompt-box{
     position: relative;
     width: 300px;
-    height: 500px;
+    height: 530px;
     .grid{
         margin-top: 20px;
         display: grid;
         grid-template-rows: repeat(4, 1fr);
-        row-gap: 40px;
+        row-gap: 37px;
         padding-left: 10px;
         justify-items: left;
         label{
@@ -130,7 +130,7 @@ body, html{
                 height: 20px;
                 margin:2px 1px;
             }
-            input[type="number"]{
+            input[type="number"], input[type="link"]{
                 @extend input, [type="text"];
             }
             #read{
@@ -250,6 +250,8 @@ body, html{
         }
     }
 }
+
+
 .pages, .read-text{
     font-weight: 500;
     font-size: 25px;

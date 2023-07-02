@@ -22,11 +22,12 @@ exit.addEventListener(`click`, ()=>{
 
 //Initialize library array and Object
 let myLibrary = [];
-function Book(title, author, pages, read){
+function Book(title, author, pages, read, background){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.background = background;
 }
 
 Book.prototype.changeStatus = function(){
@@ -139,6 +140,14 @@ function displayBook(book){
     boxDiv.appendChild(header);
     boxDiv.appendChild(body);
 
+    if(book.background.length !== 0){
+        boxDiv.style.background = `url('${book.background}')`
+        boxDiv.style.backgroundColor = `#083344`
+        boxDiv.style.backgroundSize = `cover`;
+        boxDiv.style.backgroundRepeat = `no-repeat`;
+        boxDiv.style.backgroundPosition = `center center`;
+        boxDiv.style.backgroundBlendMode = `multiply`;
+    }
     //append new box to body
     contentBody.appendChild(boxDiv);
 }
@@ -171,7 +180,8 @@ form.addEventListener(`submit`, (e)=>{
     let author = form.author.value;
     let pages = form.pages.value;
     let read = form.read.checked;
-    addBookToLibrary(new Book(title, author, pages, read));
+    let background = form.background.value;
+    addBookToLibrary(new Book(title, author, pages, read, background));
     // prevent default
     form.reset();
     e.preventDefault();
