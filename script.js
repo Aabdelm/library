@@ -22,19 +22,17 @@ exit.addEventListener(`click`, ()=>{
 
 //Initialize library array and Object
 let myLibrary = [];
-class Book{
-    constructor(title, author, pages, read, background){
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
-        this.background = background;
-    }
-    changeStatus(){
-        this.read = !this.read;
-    }
+function Book(title, author, pages, read, background){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.background = background;
 }
 
+Book.prototype.changeStatus = function(){
+    this.read = !this.read;
+}
 
 /*
     creates and appends a new book to the library based on input responses
